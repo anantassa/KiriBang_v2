@@ -30,12 +30,13 @@
         android:background="#ffffff"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:gravity="">
+        android:gravity="center">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Log In"
+            android:textColor="#ffffff"
             android:layout_marginTop="20dp"
             android:id="@+id/btnLogin"
             android:background="@color/colorPrimary"/>
