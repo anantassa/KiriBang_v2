@@ -1,5 +1,6 @@
 package com.example.tassa.kiribang;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -89,9 +90,9 @@ public class MainActivity extends AppCompatActivity
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.content_main, angkotFragment, angkotFragment.getTag()).commit();
         } else if (id == R.id.nav_gallery) {
-            BusFragment busFragment = new BusFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.content_main, busFragment, busFragment.getTag()).commit();
+           BusFragment busFragment = new BusFragment();
+           FragmentManager manager = getSupportFragmentManager();
+           manager.beginTransaction().replace(R.id.content_main, busFragment, busFragment.getTag()).commit();
 
         } else if (id == R.id.nav_slideshow) {
 
