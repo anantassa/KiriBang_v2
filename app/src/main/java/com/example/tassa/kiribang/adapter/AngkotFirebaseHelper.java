@@ -1,8 +1,6 @@
 package com.example.tassa.kiribang.adapter;
 
-import android.widget.ArrayAdapter;
-
-import com.example.tassa.kiribang.model.BusModel;
+import com.example.tassa.kiribang.model.AngkotModel;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,31 +10,31 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 
 /**
- * Created by Lenovo on 05/01/2017.
+ * Created by Lenovo on 06/01/2017.
  */
 
-public class FirebaseHelper {
+public class AngkotFirebaseHelper {
 
     DatabaseReference db;
     Boolean saved=null;
-    ArrayList<BusModel> busModels=new ArrayList<>();
-    CustomAdapter adapter;
+    ArrayList<AngkotModel> angkotModels=new ArrayList<>();
+    AngkotAdapter adapter;
 
-    public FirebaseHelper(DatabaseReference db) {
+    public AngkotFirebaseHelper(DatabaseReference db) {
         this.db = db;
     }
 
     //WRITE IF NOT NULL
-    public Boolean save(BusModel busModel)
+    public Boolean saveAngkot(AngkotModel angkotModel)
     {
-        if(busModel==null)
+        if(angkotModel==null)
         {
             saved=false;
         }else
         {
             try
             {
-                db.child("Bus Model").push().setValue(busModel);
+                db.child("Angkot Model").push().setValue(angkotModel);
                 saved=true;
 
             }catch (DatabaseException e)
@@ -49,33 +47,31 @@ public class FirebaseHelper {
         return saved;
     }
     //IMPLEMENT FETCH DATA AND FILL ARRAYLIST
-    private void fetchData(DataSnapshot dataSnapshot)
+    private void fetchDataAngkot(DataSnapshot dataSnapshot)
     {
+        //angkotModels.clear();
 
-
-     //   for (DataSnapshot ds : dataSnapshot.getChildren())
+       // for (DataSnapshot ds : dataSnapshot.getChildren())
        // {
             String key = dataSnapshot.getKey();
-            BusModel busModel =dataSnapshot.getValue(BusModel.class);
-            busModels.add(busModel);
+            AngkotModel angkotModel =dataSnapshot.getValue(AngkotModel.class);
+            angkotModels.add(angkotModel);
 //           adapter.notifyDataSetChanged();
        // }
     }
     //READ BY HOOKING ONTO DATABASE OPERATION CALLBACKS
-    public ArrayList<BusModel> retrieve() {
-        db.child("Bus Model").addChildEventListener(new ChildEventListener() {
+    public ArrayList<AngkotModel> retrieve() {
+        db.child("Angkot Model").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-               fetchData(dataSnapshot);
-              // BusModel bm = dataSnapshot.getValue(BusModel.class);
-             //  busModels.add(bm);
-            //  adapter.notifyDataSetChanged();
+                fetchDataAngkot(dataSnapshot);
+
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                fetchData(dataSnapshot);
+                fetchDataAngkot(dataSnapshot);
 
             }
 
@@ -95,9 +91,11 @@ public class FirebaseHelper {
             }
         });
 
-        return busModels;
+        return angkotModels;
     }
 }
+
+
 
 
 

@@ -29,6 +29,9 @@
         <activity android:name=".BusActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".DetailBusActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AngkotActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DetailAngkotActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".FrontActivity" />
         <activity android:name=".ProgressActivity"></activity>
     </application>
