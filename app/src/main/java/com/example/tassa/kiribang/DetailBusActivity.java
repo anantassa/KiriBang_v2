@@ -27,8 +27,9 @@ public class DetailBusActivity extends AppCompatActivity {
       //  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         noTxt = (TextView) findViewById(R.id.noDetailTxt);
-        descTxt= (TextView) findViewById(R.id.descDetailTxt);
         ruteTxt = (TextView) findViewById(R.id.ruteDetailTxt);
+        descTxt= (TextView) findViewById(R.id.descDetailTxt);
+
 
         //GET INTENT
         Intent i=this.getIntent();
@@ -36,8 +37,9 @@ public class DetailBusActivity extends AppCompatActivity {
 
         //RECEIVE DATA
         String no=i.getExtras().getString("NO_KEY");
-        String desc=i.getExtras().getString("DESC_KEY");
         String rute=i.getExtras().getString("ROUTE_KEY");
+        String desc=i.getExtras().getString("DESC_KEY");
+
 
         //BIND DATA
         noTxt.setText(no);

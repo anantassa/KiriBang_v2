@@ -66,13 +66,14 @@
                 android:paddingTop="5dp">
 
                 <TextView
-                    android:id="@+id/ruteAngkotDetailTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:minLines="1"
-                    android:text="Rute" />
+                    android:text="Route"
+                    android:padding="5dp"
+                    android:textStyle="italic"
+                    android:id="@+id/ruteAngkotDetailTxt" />
                 <TextView
                     android:id="@+id/descAngkotDetailTxt"
                     android:layout_width="wrap_content"

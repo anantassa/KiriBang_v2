@@ -52,14 +52,16 @@ public class AngkotAdapter extends BaseAdapter {
         }
 
         TextView noAngkot= (TextView) convertView.findViewById(R.id.noAngkot);
-        TextView descAngkotTxt= (TextView) convertView.findViewById(R.id.descAngkotTxt);
         TextView ruteAngkot= (TextView) convertView.findViewById(R.id.ruteangkot);
+        TextView descAngkotTxt= (TextView) convertView.findViewById(R.id.descAngkotTxt);
+
 
         final AngkotModel s= (AngkotModel) this.getItem(position);
 
         noAngkot.setText(s.getAngkot());
-        descAngkotTxt.setText(s.getDescAngkot());
         ruteAngkot.setText(s.getRouteAngkot());
+        descAngkotTxt.setText(s.getDescAngkot());
+
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,8 +78,9 @@ public class AngkotAdapter extends BaseAdapter {
     {
         Intent i=new Intent(c, DetailAngkotActivity.class);
         i.putExtra("NO_KEY",details[0]);
-        i.putExtra("DESC_KEY",details[1]);
-        i.putExtra("ROUTE_KEY",details[2]);
+        i.putExtra("ROUTE_KEY",details[1]);
+        i.putExtra("DESC_KEY",details[2]);
+
 
         c.startActivity(i);
     }
