@@ -9,25 +9,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.tassa.kiribang.AngkotActivity"
-    tools:showIn="@layout/activity_list_angkot">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <EditText
-        android:id="@+id/noAngkotEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:hint="Type to Filter Route" />
+    tools:context="com.example.tassa.kiribang.NewsActivity"
+    tools:showIn="@layout/activity_list_news">
 
     <ListView
-        android:id="@+id/lv_angkot"
+        android:id="@+id/lv_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
-    </LinearLayout>
 </RelativeLayout>

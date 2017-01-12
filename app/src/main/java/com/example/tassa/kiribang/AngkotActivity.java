@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +39,8 @@ public class AngkotActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_angkot);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAngkot);
         setSupportActionBar(toolbar);
+        noAngkotEditTxt = (EditText) findViewById(R.id.noAngkotEditText);
+        noAngkotEditTxt.addTextChangedListener(filterTextWatcher);
 
         lvAngkot = (ListView) findViewById(R.id.lv_angkot);
 
@@ -47,76 +51,26 @@ public class AngkotActivity extends AppCompatActivity {
         //ADAPTER
         adapter = new AngkotAdapter(this, helper.retrieve());
         lvAngkot.setAdapter(adapter);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_angkot);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                displayInputDialog();
+        lvAngkot.setTextFilterEnabled(true);
+        //   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_angkot);
+        //  fab.setOnClickListener(new View.OnClickListener() {
 
-            }
-        });
+
     }
 
+    private TextWatcher filterTextWatcher = new TextWatcher() {
 
+        public void afterTextChanged(Editable s) {
+        }
 
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                                      int after) {
+        }
 
-    //DISPLAY INPUT DIALOG
-    private void displayInputDialog()
-    {
-        Dialog d=new Dialog(this);
-        d.setTitle("Save To Firebase");
-        d.setContentView(R.layout.input_dialog_angkot);
-
-        noAngkotEditTxt= (EditText) d.findViewById(R.id.noAngkotEditText);
-        ruteAngkotTxt= (EditText) d.findViewById(R.id.ruteAngkotEditText);
-        descAngkotTxt= (EditText) d.findViewById(R.id.descAngkotEditText);
-        Button saveBtn= (Button) d.findViewById(R.id.saveAngkotBtn);
-
-        //SAVE
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //GET DATA
-                String noAngkot=noAngkotEditTxt.getText().toString();
-                String ruteAngkot=ruteAngkotTxt.getText().toString();
-                String descAngkot=descAngkotTxt.getText().toString();
-
-                //SET DATA
-                AngkotModel s=new AngkotModel();
-                s.setAngkot(noAngkot);
-                s.setRouteAngkot(ruteAngkot);
-                s.setDescAngkot(descAngkot);
-
-
-                //SIMPLE VALIDATION
-                if(noAngkot != null && noAngkot.length()>0)
-                {
-                    //THEN SAVE
-                    if(helper.saveAngkot(s))
-                    {
-                        //IF SAVED CLEAR EDITXT
-                        noAngkotEditTxt.setText("");
-                        ruteAngkotTxt.setText("");
-                        descAngkotTxt.setText("");
-
-
-                        adapter=new AngkotAdapter(AngkotActivity.this,helper.retrieve());
-                        lvAngkot.setAdapter(adapter);
-
-
-                    }
-                }else
-                {
-                    Toast.makeText(AngkotActivity.this, "Name Must Not Be Empty", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        d.show();
-    }
-
-
-
+        public void onTextChanged(CharSequence s, int start, int before,
+                                  int count) {
+            FilterAngkot filter = adapter.getFilter();
+            filter.filter(s.toString());
+        }
+    };
 }

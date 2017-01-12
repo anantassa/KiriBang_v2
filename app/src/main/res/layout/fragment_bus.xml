@@ -11,10 +11,23 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.tassa.kiribang.BusActivity"
     tools:showIn="@layout/activity_list_bus">
-
-    <ListView
-        android:id="@+id/lv"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/noEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Type to Filter Route" />
+
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
 </RelativeLayout>

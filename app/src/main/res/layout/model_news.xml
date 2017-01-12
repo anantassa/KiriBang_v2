@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Bus"
-            android:id="@+id/noBus"
+            android:text="Name"
+            android:id="@+id/nama"
             android:padding="10dp"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
@@ -32,7 +32,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Route"
             android:textStyle="italic"
-            android:id="@+id/rutebus" />
+            android:id="@+id/rutenews" />
 
 
         <TextView
@@ -41,7 +41,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Description....................."
             android:lines="3"
-            android:id="@+id/descTxt"
+            android:id="@+id/descNews"
             android:padding="10dp"
             android:layout_alignParentLeft="true"
             />

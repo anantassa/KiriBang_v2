@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.tassa.kiribang.DetailBusActivity"
-    tools:showIn="@layout/activity_detail_bus">
+    tools:context="com.example.tassa.kiribang.DetailNewsActivity"
+    tools:showIn="@layout/activity_detail_news">
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal" android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/noDetailTxt"
+                        android:id="@+id/namaDetailNews"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -66,7 +66,7 @@
                 android:paddingTop="5dp">
 
                 <TextView
-                    android:id="@+id/ruteDetailTxt"
+                    android:id="@+id/ruteDetailNews"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -74,7 +74,7 @@
                     android:minLines="1"
                     android:text="Rute" />
                 <TextView
-                    android:id="@+id/descDetailTxt"
+                    android:id="@+id/descDetailNews"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"

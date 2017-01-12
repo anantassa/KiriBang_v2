@@ -9,36 +9,35 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.tassa.kiribang.DetailAngkotActivity;
-
+import com.example.tassa.kiribang.DetailNewsActivity;
 import com.example.tassa.kiribang.FilterAngkot;
-
 import com.example.tassa.kiribang.R;
 import com.example.tassa.kiribang.model.AngkotModel;
-
+import com.example.tassa.kiribang.model.News;
 
 import java.util.ArrayList;
 
 /**
- * Created by Lenovo on 06/01/2017.
+ * Created by Lenovo on 13/01/2017.
  */
 
-public class AngkotAdapter extends BaseAdapter {
+public class NewsAdapter  extends BaseAdapter {
     Context c;
-    ArrayList<AngkotModel> angkotModels;
+    ArrayList<News> newsModel;
 
-    public AngkotAdapter(Context c, ArrayList<AngkotModel> angkotModels) {
+    public NewsAdapter(Context c, ArrayList<News> newsModel) {
         this.c = c;
-        this.angkotModels = angkotModels;
+        this.newsModel = newsModel;
     }
 
     @Override
     public int getCount() {
-        return angkotModels.size();
+        return newsModel.size();
     }
 
     @Override
     public Object getItem(int pos) {
-        return angkotModels.get(pos);
+        return newsModel.get(pos);
     }
 
     @Override
@@ -50,42 +49,38 @@ public class AngkotAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         if(convertView==null)
         {
-            convertView= LayoutInflater.from(c).inflate(R.layout.model_angkot,viewGroup,false);
+            convertView= LayoutInflater.from(c).inflate(R.layout.model_news,viewGroup,false);
         }
 
-        TextView noAngkot= (TextView) convertView.findViewById(R.id.noAngkot);
-        TextView ruteAngkot= (TextView) convertView.findViewById(R.id.ruteangkot);
-        TextView descAngkotTxt= (TextView) convertView.findViewById(R.id.descAngkotTxt);
+        TextView namaNews= (TextView) convertView.findViewById(R.id.nama);
+        TextView ruteNews= (TextView) convertView.findViewById(R.id.rutenews);
+        TextView descNews= (TextView) convertView.findViewById(R.id.descNews);
 
 
-        final AngkotModel s= (AngkotModel) this.getItem(position);
+        final News s= (News) this.getItem(position);
 
-        noAngkot.setText(s.getAngkot());
-        ruteAngkot.setText(s.getRouteAngkot());
-        descAngkotTxt.setText(s.getDescAngkot());
+        namaNews.setText(s.getName());
+        ruteNews.setText(s.getRouteNews());
+        descNews.setText(s.getNews());
 
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //OPEN DETAIL
-                openDetailActivity(s.getAngkot(),s.getRouteAngkot(),s.getDescAngkot());
+                openDetailActivity(s.getName(),s.getRouteNews(),s.getNews());
             }
         });
 
         return convertView;
     }
 
-    public FilterAngkot getFilter() {
 
-        FilterAngkot filter = new FilterAngkot(angkotModels, this);
-        return filter;
-    }
 
     //OPEN DETAIL ACTIVITY
     private void openDetailActivity(String...details)
     {
-        Intent i=new Intent(c, DetailAngkotActivity.class);
+        Intent i=new Intent(c, DetailNewsActivity.class);
         i.putExtra("NO_KEY",details[0]);
         i.putExtra("ROUTE_KEY",details[1]);
         i.putExtra("DESC_KEY",details[2]);
@@ -94,10 +89,3 @@ public class AngkotAdapter extends BaseAdapter {
         c.startActivity(i);
     }
 }
-
-
-
-
-
-
-

@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.tassa.kiribang.DetailBusActivity;
+import com.example.tassa.kiribang.FilterBus;
 import com.example.tassa.kiribang.R;
 import com.example.tassa.kiribang.model.BusModel;
 
@@ -20,11 +21,17 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends BaseAdapter {
     Context c;
-    ArrayList<BusModel> busModels;
+    ArrayList<BusModel> busModels = null;
+    ArrayList<BusModel> filterbusModels = null;
+    //   ArrayList<BusModel> busOrigin;
+// private LayoutInflater mInflater;
+//    private ItemFilter mFilter = new ItemFilter();
 
     public CustomAdapter(Context c, ArrayList<BusModel> busModels) {
         this.c = c;
         this.busModels = busModels;
+        this.filterbusModels = filterbusModels;
+
     }
 
     @Override
@@ -44,22 +51,21 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
+
         if(convertView==null)
         {
             convertView= LayoutInflater.from(c).inflate(R.layout.model,viewGroup,false);
         }
 
         TextView noTxt= (TextView) convertView.findViewById(R.id.noBus);
-        TextView ruteTxt= (TextView) convertView.findViewById(R.id.rutebus);
         TextView descTxt= (TextView) convertView.findViewById(R.id.descTxt);
-
+        TextView ruteTxt= (TextView) convertView.findViewById(R.id.rutebus);
 
         final BusModel s= (BusModel) this.getItem(position);
 
         noTxt.setText(s.getBus());
-        ruteTxt.setText(s.getRoute());
         descTxt.setText(s.getDesc());
-
+        ruteTxt.setText(s.getRoute());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,27 +77,25 @@ public class CustomAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+
+    public FilterBus getFilter() {
+
+        FilterBus filter = new FilterBus(busModels, this);
+        return filter;
+    }
+
     //OPEN DETAIL ACTIVITY
     private void openDetailActivity(String...details)
     {
         Intent i=new Intent(c, DetailBusActivity.class);
         i.putExtra("NO_KEY",details[0]);
-        i.putExtra("ROUTE_KEY",details[1]);
-        i.putExtra("DESC_KEY",details[2]);
-
+        i.putExtra("DESC_KEY",details[1]);
+        i.putExtra("ROUTE_KEY",details[2]);
 
         c.startActivity(i);
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
