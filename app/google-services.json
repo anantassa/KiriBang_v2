@@ -1,27 +1,33 @@
 {
   "project_info": {
-    "project_number": "850121617079",
-    "firebase_url": "https://kiribangv1-2.firebaseio.com",
-    "project_id": "kiribangv1-2",
-    "storage_bucket": "kiribangv1-2.appspot.com"
+    "project_number": "23944267249",
+    "project_id": "kiribangs"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:850121617079:android:e501d9c33c3a2d8c",
+        "mobilesdk_app_id": "1:23944267249:android:e501d9c33c3a2d8c",
         "android_client_info": {
           "package_name": "com.example.tassa.kiribang"
         }
       },
       "oauth_client": [
         {
-          "client_id": "850121617079-krnc3i9dl370m6abcrvirmoru7lfoceq.apps.googleusercontent.com",
+          "client_id": "23944267249-r55kjgfa8hej94ju9hufg715qii30854.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tassa.kiribang",
+            "certificate_hash": "C1AA7DB126683C0D96D802681117C7D2576D053B"
+          }
+        },
+        {
+          "client_id": "23944267249-k608e9ubtfogao6kq61s8j5fo9pmt9kf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAwsk5sjy9Hk3t59ggenJqWkCP4z6gjam0"
+          "current_key": "AIzaSyBhshx5MV63dqTGZwEhEn5Y-J3bilnQt_w"
         }
       ],
       "services": {
@@ -33,7 +39,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 2
+          "status": 1
         }
       }
     }
