@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_settings:
                 return true;
             case R.id.logoutmenu:
-                logoutUser();
+              //  logoutUser();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -105,6 +105,8 @@ private void logoutUser(){
            manager.beginTransaction().replace(R.id.content_main, busFragment, busFragment.getTag()).commit();
 
         } else if (id == R.id.nav_slideshow) {
+            Intent myIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            this.startActivity(myIntent);
 
         } else if (id == R.id.nav_manage) {
 
