@@ -10,7 +10,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,20 +56,26 @@ import static com.example.tassa.kiribang.R.id.progressBar;
  * Created by Lenovo on 28/12/2016.
  */
 
-public class BusActivity extends AppCompatActivity {
+public class BusActivity extends AppCompatActivity  {
 
     DatabaseReference db;
     FirebaseHelper helper;
-    CustomAdapter adapter;
+    CustomAdapter adapter ;
     ListView lv;
     EditText noEditTxt, ruteTxt, descTxt;
+    SearchView sv;
+    ArrayAdapter<BusModel> adaptertest = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_bus);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar)
+                findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        noEditTxt= (EditText) findViewById(R.id.noEditText);
+        noEditTxt.addTextChangedListener(filterTextWatcher);
 
         lv = (ListView) findViewById(R.id.lv);
 
@@ -75,75 +86,30 @@ public class BusActivity extends AppCompatActivity {
         //ADAPTER
         adapter = new CustomAdapter(this, helper.retrieve());
         lv.setAdapter(adapter);
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-         fab.setOnClickListener(new View.OnClickListener() {
-           @Override
-          public void onClick(View view) {
-              displayInputDialog();
+        lv.setTextFilterEnabled(true);
+       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        // fab.setOnClickListener(new View.OnClickListener() {
 
-           }
-     });
+
     }
 
+    private TextWatcher filterTextWatcher = new TextWatcher() {
+
+        public void afterTextChanged(Editable s) {
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                                      int after) {
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before,
+                                  int count) {
+            FilterBus filter = adapter.getFilter();
+            filter.filter(s.toString());
+        }
+    };
 
 
-
-    //DISPLAY INPUT DIALOG
-    private void displayInputDialog()
-    {
-        Dialog d=new Dialog(this);
-        d.setTitle("Save To Firebase");
-        d.setContentView(R.layout.input_dialog);
-
-        noEditTxt= (EditText) d.findViewById(R.id.noEditText);
-        ruteTxt= (EditText) d.findViewById(R.id.ruteEditText);
-        descTxt= (EditText) d.findViewById(R.id.descEditText);
-        Button saveBtn= (Button) d.findViewById(R.id.saveBtn);
-
-        //SAVE
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //GET DATA
-                String no=noEditTxt.getText().toString();
-                String rute=ruteTxt.getText().toString();
-                String desc=descTxt.getText().toString();
-
-                //SET DATA
-                BusModel s=new BusModel();
-                s.setBus(no);
-                s.setRoute(rute);
-                s.setDesc(desc);
-
-
-                //SIMPLE VALIDATION
-                if(no != null && no.length()>0)
-                {
-                    //THEN SAVE
-                    if(helper.save(s))
-                    {
-                        //IF SAVED CLEAR EDITXT
-                        noEditTxt.setText("");
-                        ruteTxt.setText("");
-                        descTxt.setText("");
-
-
-                        adapter=new CustomAdapter(BusActivity.this,helper.retrieve());
-                        lv.setAdapter(adapter);
-
-
-                    }
-                }else
-                {
-                    Toast.makeText(BusActivity.this, "Name Must Not Be Empty", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        d.show();
-    }
 
 
 

@@ -22,44 +22,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:hint= "No" />
+                android:hint="type to filter
+                " />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/propLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/ruteEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:hint= "Route" />
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/descLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/descEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:hint= "Description" />
-            </android.support.design.widget.TextInputLayout>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <Button android:id="@+id/saveBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:clickable="true"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"/>
 
 
     </LinearLayout>

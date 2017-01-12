@@ -2,13 +2,17 @@ package com.example.tassa.kiribang.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.tassa.kiribang.DetailBusActivity;
+import com.example.tassa.kiribang.FilterBus;
 import com.example.tassa.kiribang.R;
 import com.example.tassa.kiribang.model.BusModel;
 
@@ -18,13 +22,19 @@ import java.util.ArrayList;
  * Created by Lenovo on 05/01/2017.
  */
 
-public class CustomAdapter extends BaseAdapter {
+public class CustomAdapter extends BaseAdapter implements Filterable {
     Context c;
-    ArrayList<BusModel> busModels;
+    ArrayList<BusModel> busModels = null;
+    ArrayList<BusModel> filterbusModels = null;
+ //   ArrayList<BusModel> busOrigin;
+// private LayoutInflater mInflater;
+//    private ItemFilter mFilter = new ItemFilter();
 
     public CustomAdapter(Context c, ArrayList<BusModel> busModels) {
         this.c = c;
         this.busModels = busModels;
+        this.filterbusModels = filterbusModels;
+
     }
 
     @Override
@@ -44,6 +54,7 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
+
         if(convertView==null)
         {
             convertView= LayoutInflater.from(c).inflate(R.layout.model,viewGroup,false);
@@ -69,6 +80,14 @@ public class CustomAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+    @Override
+    public FilterBus getFilter() {
+
+        FilterBus filter = new FilterBus(busModels, this);
+       return filter;
+    }
+
     //OPEN DETAIL ACTIVITY
     private void openDetailActivity(String...details)
     {

@@ -12,9 +12,24 @@
     tools:context="com.example.tassa.kiribang.BusActivity"
     tools:showIn="@layout/activity_list_bus">
 
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/noEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="type to filter
+                " />
+
+
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+</LinearLayout>
 </RelativeLayout>
