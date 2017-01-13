@@ -32,6 +32,7 @@ public class FrontActivity extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
+    private Button btnGuest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,13 @@ public class FrontActivity extends AppCompatActivity implements
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.disconnect_button).setOnClickListener(this);
+        btnGuest = (Button)findViewById(R.id.btnGuest);
+        btnGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
 
         // [START configure_signin]
         // Configure sign-in to request the user's ID, email address, and basic

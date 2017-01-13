@@ -58,14 +58,16 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         TextView noTxt= (TextView) convertView.findViewById(R.id.noBus);
-        TextView descTxt= (TextView) convertView.findViewById(R.id.descTxt);
         TextView ruteTxt= (TextView) convertView.findViewById(R.id.rutebus);
+        TextView descTxt= (TextView) convertView.findViewById(R.id.descTxt);
+        ;
 
         final BusModel s= (BusModel) this.getItem(position);
 
         noTxt.setText(s.getBus());
-        descTxt.setText(s.getDesc());
         ruteTxt.setText(s.getRoute());
+        descTxt.setText(s.getDesc());
+
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,8 +92,9 @@ public class CustomAdapter extends BaseAdapter {
     {
         Intent i=new Intent(c, DetailBusActivity.class);
         i.putExtra("NO_KEY",details[0]);
-        i.putExtra("DESC_KEY",details[1]);
-        i.putExtra("ROUTE_KEY",details[2]);
+        i.putExtra("ROUTE_KEY",details[1]);
+        i.putExtra("DESC_KEY",details[2]);
+
 
         c.startActivity(i);
     }

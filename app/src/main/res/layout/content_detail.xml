@@ -64,15 +64,16 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:paddingTop="5dp">
-
+                
                 <TextView
-                    android:id="@+id/ruteDetailTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:minLines="1"
-                    android:text="Rute" />
+                    android:text="Route"
+                    android:padding="5dp"
+                    android:textStyle="italic"
+                    android:id="@+id/ruteDetailTxt" />
                 <TextView
                     android:id="@+id/descDetailTxt"
                     android:layout_width="wrap_content"
