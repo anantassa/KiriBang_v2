@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tassa.kiribang">
+    package="com.kiri.tassa.kiribang">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,16 +15,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.kiri.tassa.kiribang.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Splash"
+            android:name="com.kiri.tassa.kiribang.Splash"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,29 +33,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FrontActivity"
+            android:name="com.kiri.tassa.kiribang.FrontActivity"
             android:label="@string/name_sign_in_activity"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity"></activity>
         <activity
-            android:name=".BusActivity"
+            android:name="com.kiri.tassa.kiribang.BusActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DetailBusActivity"
+            android:name="com.kiri.tassa.kiribang.DetailBusActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AngkotActivity"
+            android:name="com.kiri.tassa.kiribang.AngkotActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DetailAngkotActivity"
+            android:name="com.kiri.tassa.kiribang.DetailAngkotActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewsActivity"
+            android:name="com.kiri.tassa.kiribang.NewsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DetailNewsActivity"
+            android:name="com.kiri.tassa.kiribang.DetailNewsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ProgressActivity" />
-        <activity android:name=".SignOutActivity" />
+        <activity android:name="com.kiri.tassa.kiribang.ProgressActivity" />
+        <activity android:name="com.kiri.tassa.kiribang.SignOutActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -69,10 +69,10 @@
             android:value="AIzaSyDFzGdW5OXegMjIO4QNEJtVpukFCp49Cfg" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name="com.kiri.tassa.kiribang.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.kiri.tassa.kiribang.SettingsActivity"
             android:label="@string/title_activity_settings"></activity>
     </application>
 

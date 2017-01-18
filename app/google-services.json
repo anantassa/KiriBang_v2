@@ -15,6 +15,50 @@
       },
       "oauth_client": [
         {
+          "client_id": "850121617079-cv8d7qbi60j9ngmc9jkpd3kvbeiqgt0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tassa.kiribang",
+            "certificate_hash": "4AC5E289A64B8A38F34B1C417E4F4D02BE52946D"
+          }
+        },
+        {
+          "client_id": "850121617079-krnc3i9dl370m6abcrvirmoru7lfoceq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwsk5sjy9Hk3t59ggenJqWkCP4z6gjam0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850121617079-krnc3i9dl370m6abcrvirmoru7lfoceq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850121617079:android:508556b9ccba30ad",
+        "android_client_info": {
+          "package_name": "com.kiri.tassa.kiribang"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "850121617079-krnc3i9dl370m6abcrvirmoru7lfoceq.apps.googleusercontent.com",
           "client_type": 3
         }

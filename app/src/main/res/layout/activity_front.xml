@@ -7,7 +7,7 @@
     android:background="@color/blue_grey_700"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context="com.example.tassa.kiribang.FrontActivity">
+    tools:context="com.kiri.tassa.kiribang.FrontActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

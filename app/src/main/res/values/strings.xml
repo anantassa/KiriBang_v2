@@ -52,7 +52,7 @@
     <!-- TODO(user): replace with your real server client ID -->
     <!-- Server Client ID.  This should be a valid Web OAuth 2.0 Client ID obtained
          from https://console.developers.google.com/ -->
-    <string name="server_client_id">748420253049-go6lhsaosmr29ec2jmru8nnqqb5bjmvb.apps.googleusercontent.com
+    <string name="server_client_id">536337268287-8mj5ejtia37hbsruja54foin1fkq7fis.apps.googleusercontent.com
 </string>
     <string name="title_activity_settings">Settings</string>
 
