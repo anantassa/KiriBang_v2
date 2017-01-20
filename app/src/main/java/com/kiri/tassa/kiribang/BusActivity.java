@@ -66,8 +66,10 @@ public class BusActivity extends AppCompatActivity {
 
         public void onTextChanged(CharSequence s, int start, int before,
                                   int count) {
-            FilterBus filter = adapter.getFilter();
-            filter.filter(s.toString());
+            if(adapter != null) {
+                adapter.getFilter().filter(s);
+            }
+
         }
     };
 
