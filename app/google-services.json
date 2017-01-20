@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "850121617079-ekej97git11a70ht9havg5ua377kj7qu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kiri.tassa.kiribang",
+            "certificate_hash": "4AC5E289A64B8A38F34B1C417E4F4D02BE52946D"
+          }
+        },
+        {
           "client_id": "850121617079-krnc3i9dl370m6abcrvirmoru7lfoceq.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -73,8 +81,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850121617079-krnc3i9dl370m6abcrvirmoru7lfoceq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
